@@ -1,0 +1,277 @@
+OS ARQUIVOS GLOBAIS QUE NÃO ESTÃO ENCAPSULADOS SERÃO ACHADOS PRATICAMENTE EM QUALQUER PARTE DA APLICAÇÃO SEM NECESSIDADE DE ALGUMA IMPORTAÇÃO
+
+
+IMPLEMENTAR OS DADOS DE EMAIL
+
+IMPLEMENTAR OS MÉTODOS BEFORE E AFTER ONDE FOR NECESSÁRIO
+
+REVER OS SINITIZE_STRIPPED
+
+REVER AULAS DE SEO E FACEBOOK DEVICE E ENSINAMENTOS SOBRE O RELATED E COMPARTILHAMENTO DA PUBLICAÇÃO E FINAL DA AULA 07 MÓDULO 09 FALANDO SOBRE O SCRIPT DISSO E FACEBOOK DEVICE
+
+coffecode router foi feito pensando em servidores apache mas também funciona em engineX
+
+>>>>>>>>PROBLEMA COM A VERIFICAÇÃO DE AMBIENTE NA FUNÇÃO URL() VERIFICAR NO FIM AS ROTAS WEB E A FUNÇÃO
+
+A PASTA APP IRÁ CUIDAR DOS CONTROLLERS
+
+O ARQUIVO WEB IRÁ CUIDAR DOS CONTROLLERS DAS NOSSAS ROTAS WEB
+
+A VIEW THEME É A PRINCIPAL QUE IRÁ EXTENDER PARA AS DEMAIS
+
+VISTO COMO IMPLEMENTAR AS DIFERENTES TELAS A PARTIR DO THEME PRINCIPAL E CONTROLE DE ROTAS DE ATIVOS COM A FUNÇÃO THEME()
+ALÉM DE EXEMPLO DE CAMINHO DE IMAGENS COM A MESMA FUNÇÃO - ESTARÃO CORRETAS QUANDO OS DADOS VIEREM DO BANCO
+
+UTILIZAÇÃO DA FUNÇÃO URL TAMBÉM EM LINKS DE ATIVOS COMO TERMO DE CONDIÇÃO E IMAGENS 
+
+>>>>>>>>>>>AULA 06 - OTIMIZAÇÃO DE ATIVOS
+
+    podemos deixar aplicação mais rapida distribuindo os recursos ou minificar eles e reduzir as requizições
+    fazendo as duas e implementando a minificação
+    vimos como utilizar diferente styles e scripts dependendo da página acessada
+    também pegamos os links de styles e scripts juntar todos eles em um e automatiza-los com o MINIFY
+
+    usaremos o minify para a camada de teste e em deploy os aqrquivos ja estarão minificados
+    para a camada de teste temos de considerar a camada da aplicação e do tema
+
+    podemos utilizar a section("styles) para produzir efeito nas paginas que queremos, mas para n encher de novas requisições, usamos o minify
+
+    para ambiente compartilhado (pasta contendo varios arquivos css e js) isso se dará de maneira manual, mas nos arquivos de tema principais (css e js) serão automatizado através de um padrão de inserção
+
+AULA 07 >>>>>>>>>>>>>
+    focando nos controllers    
+    foi visto também como acrescentar img ao nosso seo
+    trabalharemos na Web.php e index.php
+
+
+
+AULA 08 >>>>>>>>>>
+    contruindo a rota de termos de uso 
+    métodos unicos e claros para cada rota
+
+AULA 09 >>>>>>>>>>
+    implementando os blogs
+
+AULA 10 >>>>>>>>>>
+    Aula de autenticação - login, cadastro e senha
+
+    Rota post para acessar o form de login
+
+                            
+                            MÓDULO 9 MODELOS E REGRAS DE NEGÓCIO >>>>>>>>>>
+
+            Começar a configurar a model para consumo do DB e implmentar mais alguns templates
+            iremos alterar o Layer super type e aplicar o padrão querybuilder podendo ter métodos independentes pra fazer a consulta
+            vamos usar o active record na model principal
+
+Alteção na pasta boletocafe -> boletocafeweb / atualização da constante CONF_VIEW_THEME    
+A userModel agora foca mais na regra de negócio e a maioria das responsabilidades pertencer a própria Model   
+CUIDAR OS ESPAÇOS NA QUERYBUILD           
+
+AULA 04 >>>>>>>>>>
+
+Começar desenvolvendo interações com DB que envolvam interações (prime key)
+
+AULA 05 >>>>>>>>>>
+Modelo de categoria e post para leitura do blog e implementação no site
+2 - relacionamentos - prime keys - author(ja implementada) e category que será implementada aqui
+
+Classes: Models->Category(), Models->Post()
+
+Models->Category()
+    Métodos: __constructo()
+    findByUri() // trazer a categoria através de uma url amigável
+
+Models->Post()    
+    Métodos: __constructo()
+
+    find() - polimorfico - find levando em consideração data e status(draft, post, trash)
+        os métodos derivados dele também terão um comportamento alterado, como o findById()
+
+    findByUri() // trazer a categoria através de uma url amigável
+
+    author() // responsável por trazer os dados do author - A PROPRIEDADE AUTHOR NA TABELA É O ID
+
+    category()
+
+    save() // para atualização dos dados do post
+
+No banco de dados(mySQL) as tabelas terão nome no plural, mas suas models na aplicação terão seus nomes no singular 
+>>>>>>>>>>>>>>>>> Os métodos dos modelos foram aplicados como exemplo diretamente nas views para teste
+OS MÉTODOS SAVE APLICAM O UPDATE OU FALHAM, AO DAR SUCESSO APLICAM AS NOVAS INFORMAÇÕES A DATA
+
+AULA 06 >>>>>>>>>>
+
+    Parte de implementação do template do Blog
+    implementação no acesso as mídias como imagens por ex
+
+    Arquivos:
+        Helpers->is_passwd() // alteração feita para deixar mais claro o método e facilitar na manutenção // feita alteração para identificar se a senha ja possui um hash
+        Helpers->theme() // alteração de posição e tratamento como asset
+        Helpers->passwd() // como ja passamos uma parãmetro com senha, não podemos sobescrever a hash sem necessidade
+        Helpers->image() // para trabalhar com as img sem precisar trazer a classe para a aplicação - usa o método make do Cropper
+        Helpers->flash() // verifica se existe uma mensagem de erro ao usuario
+        Helpers na área de csrf -> request
+
+        Trabalho nas rotas do index 
+            agrupamento de rotas do blog
+            foi aberto o agrupamento e na parte de AUTH, o agrupamento foi desfeito
+            nova forma de escrita das url devido o agrupamento - sem necessidade de informar a palavra blog nas rotas de blog
+            no Web, no controller da home, irá receber a variável BLOG
+            foi criada uma conexão da HOME no template BLOG-LIST, através do array foi possível enviar a variável $post para o blog-list, sem isso não seria possível
+            no BLOG-LIST organizamos as variáveis de acordo
+
+            >>>>>>>>>REVER O POST->URI NO BLOG-LIST
+
+AULA 07 >>>>>>>>>>        
+
+    desenvolvimento do blog-home e o artigo do blog
+
+    Arquivos:
+        Web->blog() // começamos buscando os blogs e fazendo a contagem dos mesmos
+        template blog.php
+
+        ALTERAÇÃO NO _THEME NO LINK DO BLOG PARA ACESSAR A PÁGINA
+
+        web->blogPost() // controle dos artigos
+        Template blog-post    /  URLENCODE - PADRÃO Q O FACEBOOK PEDE PARA O LINK JA IR CODIFICADO 
+        ARRUMAR O PIXEL DO FACEBOOK
+
+AULA 08 >>>>>>>>>>        ROTINAS DE PESQUISA VIA AJAX
+ A rotina ajax dentro de um sistema mvc puro é simplemente a forma com que recebemos o post e devolvemos a resposta (REQUEST - RESPONSE)
+ temos uma rota em que o formulário fara o post para a rota que será interpretada pelo ajax
+
+ Arquivos:
+ web->blogSearch() // método que vai se encarregar pela PESQUISA
+ aplicar o jquery.form ao minify
+
+ VER EM PARTE O HTML PUXA O JS DO AJAX
+INTERAÇÃO DE CSS NA _THEME - AJAX_LOAD
+
+
+A FUNÇÃO DO AJAX IRÁ NO EVENTO DE SUBMIT ENVIAR A NOVA URL, QUE IRÁ DISPARAR O CONTROLLER QUE IRÁ FAZER O 
+    REDIRECIONAMENTO PRA PÁGINA EM QUESTÃO COM OS RESULTADOS DE PESQUISA ENCONTRADOS
+
+AULA 09 >>>>>>>>>>    
+    Autenticação pt1 - Register
+    inserção do template de email
+    arrumação do template auth-register
+    web->register()
+    criação de um modelo para a autenticação Auth.php
+        utilização de injeção de dependencia no método register para uso do obj User
+    implementação do método register de Auth, no web.php
+
+    deixamos o obj de message nativo no controlador para poder mandar ao usuario
+    ao salvar o usuario novo, o ideal é vincularmos cada informação recebida ao campo em que o dado está sendo inserido        
+
+    AULA 10 >>>>>>>>>>
+        melhoria no opt-in permitindo confirmação de compras ou inscrição em listas através da troca do controlador
+        transformar o opt-in-success em optin e com isso tornal=-lo dinâmico de acordo com as informações passadas pelo controlador
+
+        Através disso tornamos o optin dinâmico e não mais necessário usar o optin-success e optin-confirm
+
+AULA 11 >>>>>>>>>>        
+    criação do método login dentro de auth
+    Arquivos: auth->login() // método de login
+    após a configuração do método login em auth, devemos vincular essa parte ao controlador de login()
+    no template de auth-login vamos aplicar os required
+    aplicamos no template as linhas: 
+        <div class="ajax_response"> <?= flash(); ?></div>
+            <?= csrf_input(); ?>
+
+    para manter o padrão comportamental
+
+    rota /entrar post - criada
+
+    colocação da variavel cookie no auth-login
+
+    CONCERTAR COKIE DA CHECKBOX  
+
+AULA 12 >>>>>>>>>> Processo de log-out
+    criação das rotas do APP
+    criação de métodos de autenticação para ler os dados do user e fazer a desconexão
+
+    auth->user()
+    auth->logout()
+
+    no método de login onde há o redirecionamento para /app, foi necessário arrumar a sintaxe devido barra a mais devido o agrupamento.
+    por motivos de agrupamento a rota apenas com barra ("/") ficará vazia devido o método group que ja faz o trabalho da rota padrão
+
+AULA 13 >>>>>>>>>> Reset de senha
+    2 etapas: Receber a solicitação do usuário e com isso criar um código na tabela dentro do campo forget 
+    então disparar um email com esse código para criar uma nova senha
+
+    Arquivos: auth->forget()
+
+AULA 14 >>>>>>>>>>  Reset de senha 2
+
+    criação do template auth-reset
+
+    Arquivos:
+        web->reset()
+        hidden no campo input que guarda o cógido do template auth-reset
+        geração da autenticação em auth()
+
+
+MÓDULO 10
+
+Aula 02: FULLTEXT - pesquisa por palavras relacionadas
+
+    Importação do novo banco de dados - na tabela mail_queue iremos cofigurar a fila de emails - report_access e report_online serão estatisticas internas
+    implementação do formulário da home através da aplicação do csrf e do flash no template da home
+
+    Alteração do sistema de pesquisa para encontrar tudo que tenha relação com o termo pesquisado(No titulo e subtitulo)
+    tratamos isso diretamente no método de blogSearch, na query da variável $blogSearch - o like procura o termo no inicio ou fim com palavra infromada
+    retirada dos % para dar exatidão a pesquisa, além do uso dos métodos MATCH() e AGAINST() do sql
+    Para esse funcionamento os campos procurados precisam ter um índice fulltext que foi inserido via comando sql manualmente
+        ALTER TABLE posts ADD FULLTEXT(title, subtitle);
+
+Aula 03: navegação por categoria        
+    Em nosso modelo de Post() nosso find está encontrando posts com status especifico e data especifica, isso é ruim para controle administrativo, iremos arrumar isso:
+        debug de teste no contructo do web.php trazendo todos os dados dentro do padrão
+        Implementação da classe Post()
+            método find() atualizado - Com a implementação bastando passar Post(true)->find()... e trará todos os posts independente dos params
+
+        Navegação por categoria: 
+            criação de 2 rotas para isso: 1 para navegação normal e outra com paginação
+            criação do método blogCategory()   
+            organização dos templates blog-list e blog 
+
+Aula 04: Agendamento de disparos de email
+    prévia de como enviar email em fila, em segundo plano para evitar perda de tempo na aplicação   
+    apenas a configuração de como enviar email dentro de um periodo de tempo, mas o segundo plano não ocorrerá
+    essa fila será armazenada na tabela mail_queue - o controle de enviado ou nao será pela coluna sent_at
+    refatoração da classe Email()
+
+    Email->bootstrap(): alteração nas variáveis e parâmetros para melhor encaixe com a tabela mail_queue
+    Email->send(): send(): alteração em alguns parâmetros e  variáveis do método
+
+    Email->queue(): método de fila 
+    Email->sendQueue(): método de envio da fila de emails É NECESSÁRIO UMA TAREFA CRON
+        para melhor eficiencia desses métodos ainda mais do de envio é bom verificar a doc do smtp sendo usado para saber quantos emails por segundo da pra mandar
+
+Aula 05: Refatoração da message(): utilização dos métodos before() e after()
+    util para facilitar a personalização de mensagens para diferentes momentos e não usar apenas mensagens genéricas ja criadas. Alteração direta na classe irá prejudicar também entao faremos um acréscimo de código
+
+Aula 06: Acesso e estatisticas internas:
+    Trabalhando na tabela report_access, gerando informações como n° de pags vistas, n° de users acessando o site, salvos diretamente no DB
+    criação da classe modelo access() no diretório report
+    access->report(): quem fará a regra de negócio de alimentação da tabela
+    access->save(): para persistência dos dados
+
+    vamos trabalhar com sessoes para as views e cookies para os usuarios
+        se o usuário acessou o site, o cookie não vai deixar incrementar o cookie por 24h
+        a session é para controlar quantas vezes o usuário acessou o site
+
+>>>>>>>>>PARA UM MELHOR DEBUG IR USANDO O VAR_DUMP() nas linhas do método que não estiver funcionando
+
+AULA 07: usuários online e navegação: controle de usuarios online e pagina sendo acessada pelo mesmos - Usaremos a tabela report_online
+    Será possivel verificar o sistema operacional pela coluna agent 
+    iremos saber quantos usuários temos online e quais são
+    o constructo irá controlar o tempo de minutos em minutos em que a função vai rodar para buscar usuários inativos ou não
+
+    online->findByActive(): usuários ativos do nosso site
+    online->report(): salva os usuarios online na tabela e outras coisas
+    online->clear(): limpa a tabela de report_online
+
+    alteração no método delete de Model e reimplantação do método destroy()
