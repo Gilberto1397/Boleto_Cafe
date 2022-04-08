@@ -6,12 +6,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Source\Core\Connect;
 
-/**
- * FSPHP | Class Email
- *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Core
- */
 class Email
 {
     /** @var  */

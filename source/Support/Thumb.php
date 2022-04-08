@@ -4,12 +4,6 @@ namespace Source\Support;
 
 use CoffeeCode\Cropper\Cropper;
 
-/**
- * FSPHP | Class Thumb
- *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Support
- */
 class Thumb
 {
     /** @var Cropper */

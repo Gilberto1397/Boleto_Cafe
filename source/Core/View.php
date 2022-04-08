@@ -4,12 +4,6 @@ namespace Source\Core;
 
 use League\Plates\Engine;
 
-/**
- * FSPHP | Class View
- *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Core
- */
 class View
 {
     /** @var Engine */

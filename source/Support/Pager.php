@@ -4,12 +4,6 @@ namespace Source\Support;
 
 use CoffeeCode\Paginator\Paginator;
 
-/**
- * FSPHP | Class Pager
- *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Support
- */
 class Pager extends Paginator
 {
     /**

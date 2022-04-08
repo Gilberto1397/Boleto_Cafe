@@ -6,12 +6,7 @@ use CoffeeCode\Uploader\File;
 use CoffeeCode\Uploader\Image;
 use CoffeeCode\Uploader\Media;
 
-/**
- * FSPHP | Class Upload
- *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Support
- */
+
 class Upload
 {
     /** @var Message */

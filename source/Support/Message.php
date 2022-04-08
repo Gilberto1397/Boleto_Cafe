@@ -4,12 +4,6 @@ namespace Source\Support;
 
 use Source\Core\Session;
 
-/**
- * FSPHP | Class Message
- *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Core
- */
 class Message
 {
     /** @var string */

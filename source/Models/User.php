@@ -4,12 +4,6 @@ namespace Source\Models;
 
 use Source\Core\Model;
 
-/**
- * FSPHP | Class User Active Record Pattern
- *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Models
- */
 class User extends Model
 {
     /**

@@ -2,12 +2,6 @@
 
 namespace Source\Core;
 
-/**
- * FSPHP | Class Connect [ Singleton Pattern ]
- *
- * @author Robson V. Leite <cursos@upinside.com.br>
- * @package Source\Core
- */
 class Connect
 {
     /** @const array */
